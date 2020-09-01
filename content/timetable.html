@@ -1,0 +1,129 @@
+<div id="timeTableForm">
+	<form>
+		<br/>
+		<div class="form-group row"> 
+		  <label class="col-md-2 col-form-label" for="timeTableFormYear">Year: </label>
+		  <select class="form-control col-md-3" id="timeTableFormYear">
+			<option>Loading...</option>
+		  </select>
+		  &nbsp;&nbsp;
+			<div id="timetableLoadingYear" class="spinner-grow spinner-grow-md text-success timetableloading" role="status" style="margin-top:2px;">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<div class="form-group row">
+		  <label class="col-md-2 col-form-label" for="timeTableFormSemester">Semester: </label>
+		  <select class="form-control col-md-3" id="timeTableFormSemester">
+			<option>Loading...</option>
+		  </select>
+		  &nbsp;&nbsp;
+			<div id="timetableLoadingSemester" class="spinner-grow spinner-grow-md text-success timetableloading" role="status" style="margin-top:2px;">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<div class="form-group row">
+		  <label class="col-md-2 col-form-label" for="timeTableFormCourse">Course: </label>
+		  <select class="form-control col-md-3" id="timeTableFormCourse">
+			<option>Loading...</option>
+		  </select>
+		    &nbsp;&nbsp;
+			<div id="timetableLoadingCourse" class="spinner-grow spinner-grow-md text-success timetableloading" role="status" style="margin-top:2px;">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<input type="button" id="timeTableFormSubmit" class="btn btn-sm btn-primary" value="Generate" />
+		<p style="margin:8px;" id="timetableOutput"></p>
+	</form>
+</div>
+</br>
+<div id="timeTableView" hidden="true">
+	<div id="AllSpecialisations" >
+	<!--Dynamic content here-->
+	</div>
+	<div id="AllTimeTables" >
+	<!--Dynamic tables here-->
+	</div>
+
+	<button type="submit" id="backBtnTimeTable" style="margin-top:8px;" class="btn btn-secondary">Back</button> 
+</div> 
+<!--
+	<div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+	  <span class="sr-only">Loading...</span>
+	</div><br />
+-->
+<script id="specTemplate" type="x-tmpl-mustache">
+	<h3 align="center">{{titleline}}</h3><hr />		
+	<div class="row">
+
+		{{#specialisations}}
+		<div  class="col-md-3 mb-4 d-flex">
+			<div id="displayTimetables" name="{{Specialisation}}" class="card text-center specialisationcard" style="width:100%;">				
+				<div class="avatarBackground card-img" style="background-color:{{color}}">
+			  		<span class="initials">{{Initials}}</span>	
+				</div>
+				<div class="card-body">
+					<h5 class="card-title" style="line-height:1.2em;height: 2.4em;overflow: hidden">{{Specialisation}}</h5>
+					<p class="card-text">{{#Status}}<span style="color:red;">Clashes found</span>{{/Status}}{{^Status}}No clash{{/Status}}</p>
+					<!--
+					<button type="submit" id="displayTimetables" name="{{Specialisation}}" class="btn btn-primary">Display Timetables</button>
+					-->
+				</div>
+			</div>
+		</div>
+		{{/specialisations}}
+	</div>
+</script>  
+<script id="timeTableTemplate" type="x-tmpl-mustache">
+	<div class="row">
+	  <div class="col-md-2"></div>
+	  <div class="col-md-8"><h4 align="center">{{Year}} S{{Semester}} {{Course}}<br>{{SpecTitle}}</h4></div>
+	  <div class="col-md-2"></div>
+	</div>
+	<hr />
+	<div class="row">
+	<div class="col-12">
+	{{#timetables}}
+	<h5>{{FileYear}} Intake {{Intake}} Y{{Year}} S{{Semester}}</h5>
+	<table id="my-table" class="table table-sm">
+		<thead>
+		<tr class="text-white">
+			<th scope="col" class="text-center border-0 bg-primary" style="width: 16.66%">Time</th>
+			<th scope="col" class="text-center border-0 bg-primary" style="width: 16.66%">Monday</th>
+			<th scope="col" class="text-center border-0 bg-primary" style="width: 16.66%">Tuesday</th>
+			<th scope="col" class="text-center border-0 bg-primary" style="width: 16.66%">Wednesday</th>
+			<th scope="col" class="text-center border-0 bg-primary" style="width: 16.66%">Thursday</th>
+			<th scope="col" class="text-center border-0 bg-primary" style="width: 16.66%">Friday</th>
+		</tr>
+		</thead>
+		<tbody>	
+		{{#hasUnits}}		
+		{{#Units}}
+		<tr>
+			{{#hasTimetable}}
+			<td align="center" style="background-color:#f0f0f0 !important; ">{{TimeString}}</td>
+			<td id="monday" {{#ClashOnMonday}} class="tdclashclass" {{/ClashOnMonday}} align="center">{{onMonday}}</td>
+			<td id="tuesday" {{^ClashOnTuesday}}style="background-color:#f0f0f0;"{{/ClashOnTuesday}} {{#ClashOnTuesday}} class="tdclashclass" {{/ClashOnTuesday}} align="center">{{onTuesday}}</td>
+			<td id="wednesday" {{#ClashOnWednesday}} class="tdclashclass" {{/ClashOnWednesday}} align="center">{{onWednesday}}</td>
+			<td id="thursday" {{^ClashOnThursday}}style="background-color:#f0f0f0;"{{/ClashOnThursday}} {{#ClashOnThursday}} class="tdclashclass" {{/ClashOnThursday}} align="center">{{onThursday}}</td>
+			<td id="friday"  {{#ClashOnFriday}} class="tdclashclass" {{/ClashOnFriday}} align="center">{{onFriday}}</td>
+			{{/hasTimetable}}
+			{{^hasTimetable}}
+			<td align="center">Not Scheduled</td>
+			<td colspan="5">{{UnitCode}} {{UnitTitle}}</td>
+			{{/hasTimetable}}			
+		</tr>
+		{{/Units}}
+		{{/hasUnits}}				
+		{{^hasUnits}}
+		<tr>
+			<td align="center" colspan="6">No Study Plan data found!</td>
+		</tr>
+		{{/hasUnits}}
+		</tbody>
+	</table>
+	<br />
+	{{/timetables}}
+	<button type="submit" id="backToSpecs" class="btn btn-secondary">Back</button>
+	</div>
+	</div>
+</script>

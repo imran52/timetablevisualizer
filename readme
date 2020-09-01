@@ -1,0 +1,7 @@
+To set up:
+1. Upload the content of this directory to web server. You can install xampp on windows, put the content inside
+the htdocs folder. 
+2. Get the database variables. You need to create a database (no need of setting up any tables, just empty DB).
+If you have installed and setup xampp, you can create database by going to localhost/phpmyadmin from browser,
+3. Set those values in config.php (also in the root of this dir). First four variables needs to be set.
+$sql_db should be equal to the name of database you created.

@@ -1,0 +1,105 @@
+<br>
+<div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none;">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>Success!</strong> File has been succesfully uploaded.
+</div>
+<div class="alert alert-danger alert-dismissible" id="alertfail" style="display:none;">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>Warning!</strong> File failed to upload. Try again!
+</div>
+<form class="form-group needs-validation" method="post" id="uploadForm" enctype="multipart/form-data" novalidate>
+<div class="col-md-4 input-sm custom-file-sm" style="margin-bottom:8px;">
+  <input type="file" class=" custom-file-input" name="userfile" id="userFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required />
+  <label class="custom-file-label" for="userFile">Select an xlsx file </label>	
+  <div class="invalid-feedback">
+	Please Select a valid file.
+  </div>  
+</div>
+
+<button type="submit" name="submitFile" id="submitFile" class="btn btn-sm btn-primary">
+	<span id="waitingSpin" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+	Upload
+</button>
+</form>
+<h5>List of Files Uploaded</h5>
+<div class="card">
+  <div class="arrow1 card-header bg-primary mycollapse" data-toggle="collapse" href="#collapseFileList">
+    <a class="card-link text-white">
+      Study Plans
+    </a>
+  </div>
+  <div id="collapseFileList" class="collapse" >
+    <div class="card-body">
+
+	  <table id="filesListTable" class="table table-sm">
+	  <thead>
+		<tr>
+		  <th scope="col">#</th>
+		  <th scope="col">Course</th>
+		  <th scope="col">Year</th>
+		  <th scope="col">File Name</th>
+		  <th scope="col">Date Added</th>
+		  <th scope="col">Action</th>
+		</tr>
+	  </thead>
+	  <tbody>
+
+	  </tbody>
+	  </table>
+    </div>
+  </div>
+  <p style="margin:2px;"></p>
+  <div class="mycollapse arrow1 card-header bg-primary" data-toggle="collapse" href="#collapseFileListTimetables">
+    <a class="card-link text-white">
+      Timetables
+    </a>
+  </div>
+  <div id="collapseFileListTimetables" class="collapse" > 
+    <div class="card-body">
+	<!--
+      <ul id="ListFilesTimetable" class="row list-group ml-1 mr-1">
+      </ul>          
+	-->	  
+	  <table id="listFilesTimeTable" class="table table-sm">
+	  <thead>
+		<tr>
+		  <th scope="col">#</th>
+		  <th scope="col">Year</th>
+		  <th scope="col">File Name</th>
+		  <th scope="col">Date Added</th>
+		  <th scope="col">Action</th>
+		</tr>
+	  </thead>
+	  <tbody>
+
+	  </tbody>
+	  </table>
+    </div>
+  </div>
+</div>  
+<!-- Button trigger modal 
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+  Launch demo modal
+</button>
+-->
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="deleteModalBody" class="modal-body">
+        This action can't be undone!
+      </div>
+      <div class="modal-footer">
+        <button id ="closeDeleteBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="confirmDeleteBtn" type="button" class="btn btn-primary" onclick="confirmDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

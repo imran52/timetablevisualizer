@@ -1,0 +1,137 @@
+:root {
+  --myprimary: #00b894;
+  --mytextcolor1:#fff;
+  --mytextcolor0:#000;
+  --mybackgroundcolor:#fff;
+}
+
+.avatar {
+  width: 192px;
+  height: 192px;
+  vertical-align: middle;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  background-color:#339966;
+  text-align:center;
+}
+
+.initials{
+  position:relative;
+  top: 50px;
+  font-family: Arial;
+  font-size:60px;
+  color:#fff;
+  text-shadow: 0 0 2px #cccccc;  
+  line-height: 96px;
+  font-weight: bold;
+}
+
+.avatarBackground { 
+    height: 192px;
+	width:100%;
+    background-color:#339966;
+    background-image: url('../images/background.png');
+    opacity: 0.8; 
+    background-repeat: repeat;     
+}
+
+body {
+background: rgb(32,159,134);
+background: -moz-linear-gradient(0deg, rgba(32,159,134,0.18) 0%, rgba(32,159,134,0.18) 100%);
+background: -webkit-linear-gradient(0deg, rgba(32,159,134,0.18) 0%, rgba(32,159,134,0.18) 100%);
+background: linear-gradient(0deg, rgba(32,159,134,0.18) 0%, rgba(32,159,134,0.18) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#209f86",endColorstr="#209f86",GradientType=1);
+   
+}
+
+.custom-file-label::after{
+	color:#FFFFFF; 
+	background-color:#00B894;
+}
+#headerTitle{
+	background-color: var(--myprimary);
+}
+#headerTitle .navbar-brand{
+	color:var(--mytextcolor1);
+}
+
+#my-tab-content{
+	background-color:var(--mybackgroundcolor);
+}
+#my-tab .nav-tabs{
+	color:var(--mytextcolor0);
+	background-color:var(--mybackgroundcolor);
+}
+#my-tab .nav-link{
+	color:var(--mytextcolor0);
+	background-color:var(--mybackgroundcolor);
+}
+#my-tab .nav-link.active{
+	color:var(--mytextcolor1);
+	background-color:var(--myprimary);
+}
+.btn-primary, .btn-primary:visited {
+    background-color: var(--myprimary) !important;
+	border-color:var(--myprimary) !important;
+	border-radius:4px;
+}
+.btn-primary:active, .btn-primary:focus{
+    background-color: #009275 !important;
+	border-color:#00856b !important;
+	border-radius:4px;	
+	box-shadow:0px 0px 0px 0.2rem rgba(38,195,164,0.5);
+}
+.btn-primary:hover{
+	background-color: #009275 !important;
+	border-color:#00856b !important;
+}
+/*background primary*/
+.bg-primary{
+	background-color: var(--myprimary) !important;
+}
+
+/*table primary*/
+	
+.table-primary, .table-primary > th, .table-primary > td {
+	background-color:#b8ebe1;
+}
+
+#my-table td{
+	background-color:#fff;
+}
+#my-table{
+	margin-bottom:10px;
+	border:1px solid #b8ebe1;
+	border-radius:15px;
+}
+/*this must be after all the previous tds*/
+#my-table td.tdclashclass{
+	background-color:#ff6666;
+	color:#fff;
+}
+
+.arrow1::before{
+  float: right;
+}
+  
+.arrow1::after{
+	content: "\f107";
+	color: #fff;
+	top: -2px;
+	float: right;
+    font-family: "FontAwesome"
+}
+
+.specialisationcard {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  transition: box-shadow .3s;
+}
+
+.specialisationcard:hover {
+	cursor: pointer;
+  box-shadow: 0 0 15px #242424; 
+}
+.mycollapse:hover{
+	cursor: pointer;
+}

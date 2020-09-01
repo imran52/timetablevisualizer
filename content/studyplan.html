@@ -1,0 +1,66 @@
+<form id="studyPlanForm">
+	<br/>
+	<div class="form-group row"> 
+	  <label class="col-md-2 col-form-label" for="studyPlanFormYear">Year: </label>
+	  <select class="form-control col-md-3" id="studyPlanFormYear">
+	    <option>Loading...</option>
+	  </select>
+	    &nbsp;&nbsp;
+	    <div id="studyPlanLoadingYear" class="spinner-grow spinner-grow-md text-success" role="status" style="margin-top:2px;">
+		  <span class="sr-only">Loading...</span>
+		</div>	  
+	</div>
+	<div class="form-group row">
+	  <label class="col-md-2 col-form-label" for="studyPlanFormCourse">Course: </label>
+	  <select class="form-control col-md-3" id="studyPlanFormCourse">
+	    <option>Loading...</option>
+	  </select>
+	    &nbsp;&nbsp;
+	    <div id="studyPlanLoadingCourse" class="spinner-grow spinner-grow-md text-success" role="status" style="margin-top:2px;">
+		  <span class="sr-only">Loading...</span>
+		</div>	  
+	</div>
+	<div class="form-group row">
+	  <label class="col-md-2 col-form-label" for="studyPlanFormSpec">Specialisation: </label>
+	  <select class="form-control col-md-3" id="studyPlanFormSpec">
+	    <option>Loading...</option>
+	  </select>
+	    &nbsp;&nbsp;
+	    <div id="studyPlanLoadingSpec" class="spinner-grow spinner-grow-md text-success" role="status" style="margin-top:2px;">
+		  <span class="sr-only">Loading...</span>
+		</div>		  
+	</div>
+	<div class="form-group row">
+	  <label class="col-md-2 col-form-label" for="studyPlanFormIntake">Intake: </label>
+	  <select class="form-control col-md-3" id="studyPlanFormIntake">
+	    <option>Loading...</option>
+	  </select>
+	    &nbsp;&nbsp;
+	    <div id="studyPlanLoadingIntake" class="spinner-grow spinner-grow-md text-success" role="status" style="margin-top:2px;">
+		  <span class="sr-only">Loading...</span>
+		</div>		  
+	</div>
+	<button type="submit" id ="studyPlanFormSubmit" class="btn btn-sm btn-primary">Generate</button> 
+	
+	<p style="margin:8px;" id="studyPlanOutput"></p>
+</form>
+</br>
+<div class="container-fluid" id="studyPlanTable" class="d-none">
+	<div id="studyplandivdisplay">
+	<div class="row">
+		<div class="col-md-6">
+			<h4 id="studyPlanCourseInfo" style="display:none;">Course (Specialisation)</h4>
+		</div>
+		<div class="col-md-6" align="right">
+			<button type="submit" id="getPdfBtn" class="btn btn-sm btn-secondary" style="display:none;">Download PDF</button> 
+		</div>
+	</div>
+	<div id="tables">
+		<!--
+			Dynamic content
+		-->
+	</div>
+	</div>
+	<button type="submit" id="backBtn" class="btn btn-sm btn-secondary" style="display:none;">Back</button> 
+
+</div>        

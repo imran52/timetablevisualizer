@@ -1,0 +1,22 @@
+index.js uses
+	-->dbCheck.php
+upload.js uses
+	-->uploadFile.php
+	-->getFilesInfo.php
+	-->getTimeTableFilesInfo.php
+	-->deleteFile.php
+
+studyplan.js uses
+	-->getUnitsForStudyPlan.php
+	-->getPDF.php
+	-->getCalendarYears.php
+	-->getCoursesByYear.php
+	-->getSpecialisations.php
+	-->getIntakes.php
+
+timetable.js uses
+	-->getCalendarYears_timetable.php
+	-->getCoursesBySemester_timetable.php
+	-->getSemestersByYear_timetable.php
+	-->getSpecs_timetable.php
+	-->getTimeTables_timetable.php
